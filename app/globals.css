@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --royal-blue: #0055e6;
+  --royal-blue-dark: #003380;
+  --royal-gold: #e6b000;
+  --royal-gold-light: #ffc91a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .sparkle {
+    position: relative;
+  }
+  
+  .sparkle::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  
+  .glossy {
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+    backdrop-filter: blur(10px);
+  }
+  
+  .metallic-blue {
+    background: linear-gradient(135deg, #0055e6 0%, #003380 50%, #001a4d 100%);
+    box-shadow: 0 4px 20px rgba(0, 85, 230, 0.3);
+  }
+  
+  .metallic-gold {
+    background: linear-gradient(135deg, #ffc91a 0%, #e6b000 50%, #b38d00 100%);
+    box-shadow: 0 4px 20px rgba(230, 176, 0, 0.3);
+  }
+}
+
