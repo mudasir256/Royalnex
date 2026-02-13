@@ -124,6 +124,9 @@ export default function ProductDetail({
               <button className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold px-8 py-4 rounded-lg transition-colors flex items-center justify-center gap-2">
                 <FiShoppingCart /> Enquire Product
               </button>
+              <p className="text-gray-500 text-sm mt-4 text-center sm:text-left">
+                Bulk orders and custom branding available. Contact us for MOQ, samples, and worldwide shipping.
+              </p>
             </div>
           </div>
         </div>

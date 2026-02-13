@@ -7,13 +7,13 @@ import { FiGrid, FiList } from 'react-icons/fi'
 import { getProductsByCategory } from '@/lib/products'
 
 export default function Products() {
-  // Get products from all categories
+  // Get products from all categories (include category for correct links)
   const allProducts = [
-    ...getProductsByCategory('soccer-balls').slice(0, 2),
-    ...getProductsByCategory('rugby-balls').slice(0, 1),
-    ...getProductsByCategory('volleyballs').slice(0, 1),
-    ...getProductsByCategory('sports-wear').slice(0, 1),
-    ...getProductsByCategory('goalkeeper-gloves').slice(0, 1),
+    ...getProductsByCategory('soccer-balls').slice(0, 2).map((p) => ({ ...p, category: 'soccer-balls' as const })),
+    ...getProductsByCategory('rugby-balls').slice(0, 1).map((p) => ({ ...p, category: 'rugby-balls' as const })),
+    ...getProductsByCategory('volleyballs').slice(0, 1).map((p) => ({ ...p, category: 'volleyballs' as const })),
+    ...getProductsByCategory('sports-wear').slice(0, 1).map((p) => ({ ...p, category: 'sports-wear' as const })),
+    ...getProductsByCategory('goalkeeper-gloves').slice(0, 1).map((p) => ({ ...p, category: 'goalkeeper-gloves' as const })),
   ]
   const categories = [
     { name: 'SOCCER BALLS', slug: 'soccer-balls' },
@@ -31,6 +31,10 @@ export default function Products() {
         <div className="container mx-auto px-4 sm:px-6 text-center">
           <p className="text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4">SHOP</p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">OUR PRODUCTS</h1>
+          <p className="text-royal-blue-100 text-sm sm:text-base max-w-2xl mx-auto mb-4">
+            Explore our range of sports balls, sportswear, casual wear, and gloves. All products are available for bulk orders, 
+            custom branding, and worldwide delivery. Click a category above or browse the selection below.
+          </p>
           <div className="flex items-center justify-center gap-2 text-sm sm:text-base">
             <span>HOME</span>
             <span>/</span>
@@ -97,7 +101,7 @@ export default function Products() {
                   <p className="text-gray-600 text-sm mb-1">{product.type}</p>
                   <p className="text-gray-600 text-sm mb-4">{product.size}</p>
                   <Link
-                    href={`/products/product-${product.id}`}
+                    href={`/products/${product.category}/product-${product.id}`}
                     className="inline-block bg-royal-blue-600 hover:bg-royal-blue-700 text-white px-4 sm:px-6 py-2 rounded-lg transition-colors text-sm sm:text-base"
                   >
                     View Details

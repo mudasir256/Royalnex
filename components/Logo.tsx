@@ -9,7 +9,7 @@ interface LogoProps {
 const Logo = ({ className = '' }: LogoProps) => {
   return (
     <div className={`flex items-center ${className}`}>
-      <div className="relative h-16 sm:h-20 md:h-24 w-auto">
+      <div className="relative h-14 sm:h-16 md:h-[72px] w-auto bg-white rounded-lg px-2 py-1.5 flex items-center justify-center shadow-sm">
         <Image
           src="/logo.jpg"
           alt="Royalnex Sports Industries Logo"
